@@ -1,0 +1,13 @@
+@startuml
+actor "Пользователь" as User
+participant "Форма" as UI
+participant "Контроллер" as Ctrl
+participant "БД" as DB
+
+User -> UI : Нажать "Экспорт"
+UI -> Ctrl : Запрос
+Ctrl -> DB : Получить данные
+DB --> Ctrl : Данные
+Ctrl --> UI : Готовый файл
+UI --> User : Скачать
+@enduml

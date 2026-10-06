@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+actor "Пользователь" as User
+actor "Администратор" as Admin
+
+rectangle "Программный продукт" {
+  usecase "Установка ПО" as UC1
+  usecase "Настройка" as UC2
+  usecase "Справочники" as UC3
+  usecase "Операционные таблицы" as UC4
+  usecase "Экспорт данных" as UC5
+  usecase "Ошибки системы" as UC6
+  usecase "Целостность данных" as UC7
+}
+
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+Admin --> UC1
+Admin --> UC2
+
+UC4 .> UC3 : <<include>>
+UC5 .> UC4 : <<include>>
+UC6 -- UC4 : <<extend>>
+UC7 -- UC4 : <<extend>>
+@enduml
